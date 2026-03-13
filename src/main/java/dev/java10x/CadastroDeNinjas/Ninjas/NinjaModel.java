@@ -20,15 +20,17 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    private String name;
-    @Column(unique = true)
-    private String email;
-    private int idade;
+        private String name;
+        @Column(unique = true)
+        private String email;
+        private int idade;
+        private String rank;
+        private String imgUrl;
 
     // Muitos Ninjas Pertencem a somente uma missao
-    @ManyToOne
-    @JoinColumn(name = "missoes_id") //chave estrangeira
-    private MissoesModel missoes;
 
+    @ManyToOne
+    @JoinColumn(name = "missoes_id", nullable = true) //chave estrangeira
+    private MissoesModel missoes;
 
 }
